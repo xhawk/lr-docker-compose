@@ -1,3 +1,5 @@
+# Liferay and MySQL with docker-compose
+
 Run mysql with command
 `docker run -p 3306:3306 --name mysql57 -e MYSQL_ROOT_PASSWORD=salakala -d mysql:5.7`
 
