@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:5.7
+    restart: always
+    command: --init-file /tmp/init.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: salakala
+      MYSQL_ROOT_HOST: '%'
+    volumes:
+      - ./init.sql:/tmp/init.sql
+  liferay:
+    image: mdelapenya/liferay-portal:7.1-ga1
+    depends_on: [db]
+    environment:
+      - LIFERAY_JDBC_46_DEFAULT_46_DRIVER_67_LASS_78_AME=com.mysql.jdbc.Driver
+      - LIFERAY_JDBC_46_DEFAULT_46_USERNAME=root
+      - LIFERAY_JDBC_46_DEFAULT_46_PASSWORD=salakala
+      - LIFERAY_JDBC_46_DEFAULT_46_URL=jdbc:mysql://db/lportal?characterEncoding=UTF-8&dontTrackOpenResources=true&holdResultsOpenOverStatementClose=true&useFastDateParsing=false&useUnicode=true
+    ports:
+      - 8080:8080
+    volumes:
+      - ./portal-setup-wizard.properties:/liferay/portal-setup-wizard.properties
