@@ -6,8 +6,11 @@ Run mysql with command
 Run export commands
 
 `export LIFERAY_JDBC_46_DEFAULT_46_DRIVER_67_LASS_78_AME=com.mysql.jdbc.Driver`
+
 `export LIFERAY_JDBC_46_DEFAULT_46_PASSWORD=salakala`
+
 `export LIFERAY_JDBC_46_DEFAULT_46_URL='jdbc:mysql://localhost/lportal?characterEncoding=UTF-8&dontT'…`
+
 `export LIFERAY_JDBC_46_DEFAULT_46_USERNAME=root`
 
 Run liferay with command
